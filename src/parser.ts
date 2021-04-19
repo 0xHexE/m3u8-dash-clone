@@ -67,6 +67,28 @@ export function downloadContent(
                 ),
             );
 
+            const mediaGroups = Object.keys(
+                parsedManifest.mediaGroups.AUDIO
+                    .group_audio || {},
+            );
+
+            await Promise.all(
+                mediaGroups
+                    .map(
+                        (res) =>
+                            parsedManifest.mediaGroups.AUDIO
+                                .group_audio[res],
+                    )
+                    .map((res) =>
+                        downloadContent(
+                            res.uri,
+                            callback,
+                            semaphore,
+                            relativePath,
+                        ),
+                    ),
+            );
+
             const segments = parsedManifest.segments || [];
 
             await Promise.all(
