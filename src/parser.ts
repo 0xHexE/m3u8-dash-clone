@@ -68,16 +68,20 @@ export function downloadContent(
             );
 
             const mediaGroups = Object.keys(
-                parsedManifest.mediaGroups.AUDIO
-                    .group_audio || {},
+                (
+                    (parsedManifest.mediaGroups || {})
+                        .AUDIO || {}
+                ).group_audio || {},
             );
 
             await Promise.all(
                 mediaGroups
                     .map(
                         (res) =>
-                            parsedManifest.mediaGroups.AUDIO
-                                .group_audio[res],
+                            (
+                                parsedManifest.mediaGroups
+                                    .AUDIO || {}
+                            ).group_audio[res],
                     )
                     .map((res) =>
                         downloadContent(
