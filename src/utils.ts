@@ -9,7 +9,7 @@ import { Semaphore } from 'async-mutex';
 export const fetcher = fetch(originalFetch, {
     retries: 5,
     retryDelay: 1000,
-});
+}) as typeof window.fetch;
 
 /**
  * Retrieve the filename from the url
