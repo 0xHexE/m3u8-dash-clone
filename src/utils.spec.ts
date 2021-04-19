@@ -14,7 +14,9 @@ describe('Utils module', () => {
         return downloadFileFromUrl(
             'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
         ).then((docs) => {
-            expect(docs.fileName).toBe('x36xhzz.m3u8');
+            expect(docs.fileName).toBe(
+                '/x36xhzz/x36xhzz.m3u8',
+            );
             expect(typeof docs.content === 'string').toBe(
                 true,
             );
@@ -39,7 +41,9 @@ describe('Utils module', () => {
             '../x36xhzz.m3u8',
             'https://test-streams.mux.dev/x36xhzz/something',
         ).then((docs) => {
-            expect(docs.fileName).toBe('x36xhzz.m3u8');
+            expect(docs.fileName).toBe(
+                '/x36xhzz/x36xhzz.m3u8',
+            );
             expect(typeof docs.content === 'string').toBe(
                 true,
             );
