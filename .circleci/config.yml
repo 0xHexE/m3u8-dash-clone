@@ -10,11 +10,11 @@ jobs:
           command: yarn
 
       - run:
-          name: install
+          name: lint
           command: yarn lint
 
       - run:
-          name: install
+          name: test
           command: yarn test
       - run:
           name: release
