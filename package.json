@@ -37,6 +37,7 @@
     "lint": "eslint src/**/*.{js,ts,tsx}",
     "lint:fix": "npm run lint -- --quite --fix",
     "format": "prettier src/**/*.{js,ts,tsx} --write",
+    "presemantic-release": "npm run build",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
