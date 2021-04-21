@@ -6,6 +6,7 @@ import {
     getAbsolutePath,
     getFileNameFromUrl,
 } from './utils';
+import { Semaphore } from 'async-mutex';
 
 describe('Utils module', () => {
     it('should be download file', () => {
@@ -13,6 +14,9 @@ describe('Utils module', () => {
 
         return downloadFileFromUrl(
             'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',
+            '',
+            new Semaphore(1),
+            true,
         ).then((docs) => {
             expect(docs.fileName).toBe(
                 '/x36xhzz/x36xhzz.m3u8',
@@ -40,6 +44,8 @@ describe('Utils module', () => {
         return downloadFileFromUrl(
             '../x36xhzz.m3u8',
             'https://test-streams.mux.dev/x36xhzz/something',
+            new Semaphore(1),
+            true,
         ).then((docs) => {
             expect(docs.fileName).toBe(
                 '/x36xhzz/x36xhzz.m3u8',

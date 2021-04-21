@@ -10,7 +10,7 @@ describe('Parse module', () => {
 
     it('should download content work', async function () {
         await extractPlaylist(
-            'https://videodelivery.net/3ce1e1f69e2173aae74fd7d97d062c36/manifest/video.mpd',
+            '',
             (filename, content, error) => {
                 console.log(filename, content, error);
             },
