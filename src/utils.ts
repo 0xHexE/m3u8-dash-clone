@@ -40,11 +40,13 @@ export function getFileNameFromUrl(
  * @param url
  * @param relativePath relative path for the content relative
  * @param mutex
+ * @param isSegment download it as text
  */
 export async function downloadFileFromUrl(
     url: string,
     relativePath = '',
     mutex: Semaphore = new Semaphore(1),
+    isSegment = false,
 ): Promise<FileInformation> {
     const parsedUrl = new URL(
         concatAndResolveUrl(url, relativePath),
@@ -67,7 +69,7 @@ export async function downloadFileFromUrl(
             if (!docs) {
                 return undefined;
             }
-            if (parsedUrl.pathname.endsWith('.m3u8')) {
+            if (isSegment) {
                 return docs.text() as never;
             }
             return docs.arrayBuffer() as never;
@@ -151,4 +153,18 @@ export function cloneArrayBuffer(
     const dst = new ArrayBuffer(src.byteLength);
     new Uint8Array(dst).set(new Uint8Array(src));
     return dst;
+}
+
+/**
+ * Flat array [[1,2]] to [1,2]
+ * @param arr
+ */
+export function flatten(arr: any[]): never[] {
+    return arr.reduce(function (flat, toFlatten) {
+        return flat.concat(
+            Array.isArray(toFlatten)
+                ? flatten(toFlatten)
+                : toFlatten,
+        );
+    }, []);
 }
