@@ -9,12 +9,12 @@ describe('Parse module', () => {
     });
 
     it('should download content work', async function () {
-        await extractPlaylist(
-            '',
-            (filename, content, error) => {
-                console.log(filename, content, error);
-            },
-        );
+        // await extractPlaylist(
+        //     '',
+        //     (filename, content, error) => {
+        //         console.log(filename, content, error);
+        //     },
+        // );
         // TODO: PUT NON COPYRIGHT VIDEO HERE
         // let i = 0;
         // expect.assertions(10);
