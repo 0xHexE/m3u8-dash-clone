@@ -159,6 +159,7 @@ export function cloneArrayBuffer(
  * Flat array [[1,2]] to [1,2]
  * @param arr
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function flatten(arr: any[]): never[] {
     return arr.reduce(function (flat, toFlatten) {
         return flat.concat(

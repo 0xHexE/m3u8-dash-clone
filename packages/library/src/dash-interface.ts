@@ -1,6 +1,10 @@
+// http://app.quicktype.com
+
 export interface DashManifest {
     allowCache: boolean;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     discontinuityStarts: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     segments: any[];
     endList: boolean;
     mediaGroups: MediaGroups;

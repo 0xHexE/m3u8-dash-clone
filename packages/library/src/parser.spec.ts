@@ -1,7 +1,7 @@
 // import { downloadContent, extractPlaylist } from './parser';
 // import { Semaphore } from 'async-mutex';
 
-import { extractPlaylist } from './parser';
+// import { extractPlaylist } from './parser';
 
 describe('Parse module', () => {
     beforeEach(() => {
