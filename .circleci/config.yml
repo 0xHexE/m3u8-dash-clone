@@ -7,20 +7,16 @@ jobs:
       - checkout
 
       - run:
-          name: "Change working directory"
-          command: cd packages/library
-
-      - run:
           name: install
           command: yarn
 
       - run:
           name: lint
-          command: yarn lint
+          command: cd packages/library ; yarn lint
 
       - run:
           name: test
-          command: yarn test
+          command: cd packages/library ; yarn test
       - run:
           name: release
-          command: npm run semantic-release || true
+          command: cd packages/library ; npm run semantic-release || true
