@@ -1,0 +1,74 @@
+{
+  "name": "m3u8-dash-clone",
+  "version": "0.0.0-development",
+  "description": "Clones entire m3u8 playlists",
+  "repository": "https://github.com/httpsOmkar/m3u8-playlist-clone.git",
+  "author": "Omkar Yadav <me@f22.dev>",
+  "license": "MIT",
+  "private": false,
+  "source": "src/index.ts",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.modern.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "tsconfig.json",
+    "LICENSE",
+    "yarn.lock"
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.15",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/jest": "^26.0.22",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "microbundle": "^0.13.0",
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.4.2",
+    "ts-jest": "^26.5.5",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "microbundle",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "lint:fix": "npm run lint -- --quite --fix",
+    "format": "prettier src/**/*.{js,ts,tsx} --write",
+    "presemantic-release": "npm run build",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {
+    "async-mutex": "^0.3.1",
+    "fetch-retry": "^4.1.1",
+    "isomorphic-fetch": "^3.0.0",
+    "m3u8-parser": "^4.6.0",
+    "mpd-parser": "^0.16.0"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 60,
+    "tabWidth": 4
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {}
+  }
+}

@@ -19,6 +19,10 @@ export async function extractPlaylist(
     next: CallbackType,
     config: Config = { maxRequestSimultaneously: 10 },
 ): Promise<void> {
+    if (url === '') {
+        throw new Error('URL is required');
+    }
+
     await downloadContent(
         url,
         next,
@@ -53,6 +57,7 @@ async function loadM3u8(
                 callback,
                 semaphore,
                 relativePath,
+                true,
             ),
         ),
     );
@@ -88,6 +93,7 @@ async function loadM3u8(
                 callback,
                 semaphore,
                 relativePath,
+                true,
             ),
         ),
     );
