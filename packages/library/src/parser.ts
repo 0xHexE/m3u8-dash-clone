@@ -80,6 +80,7 @@ async function loadM3u8(
                     callback,
                     semaphore,
                     relativePath,
+                    true,
                 ),
             ),
     );

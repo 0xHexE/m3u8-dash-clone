@@ -29,7 +29,7 @@ function getNext(): CallbackType {
 }
 
 async function boot() {
-    process.argv.forEach((path) => {
+    process.argv.slice(2).forEach((path) => {
         return extractPlaylist(path, getNext(), {
             maxRequestSimultaneously: 4,
         });
